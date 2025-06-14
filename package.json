@@ -12,7 +12,18 @@
     "prepare": "husky install",
     "lint:fix": "eslint src --ext .ts --fix",
     "lint": "eslint src --ext .ts",
-    "start:prod": "node dist/main.js"
+    "start:prod": "node dist/main.js",
+
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:studio": "prisma studio",
+  
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:prisma:push": "docker-compose exec app npx prisma db push",
+    "docker:prisma:studio": "docker-compose exec app npx prisma studio"
   },
   "keywords": [],
   "author": "",
