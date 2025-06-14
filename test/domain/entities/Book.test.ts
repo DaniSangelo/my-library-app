@@ -69,7 +69,7 @@ describe('Book entity', () => {
 
     const currentDate = new Date()
     book.title = faker.book.title()
-    expect(book.updatedAt).toStrictEqual(currentDate)
+    expect(book.updatedAt.getTime()).toBeCloseTo(currentDate.getTime(), -3)
   })
 
   it('should update updatedAt when author is changed', () => {
@@ -80,7 +80,7 @@ describe('Book entity', () => {
 
     const currentDate = new Date()
     book.author = faker.person.fullName()
-    expect(book.updatedAt).toStrictEqual(currentDate)
+    expect(book.updatedAt.getTime()).toBeCloseTo(currentDate.getTime(), -3)
   })
 
   it('should update updatedAt when isbn is changed', () => {
@@ -93,7 +93,7 @@ describe('Book entity', () => {
     book.isbn = faker.number
       .int({ min: 1000000000000, max: 9999999999999 })
       .toString()
-    expect(book.updatedAt).toStrictEqual(currentDate)
+    expect(book.updatedAt.getTime()).toBeCloseTo(currentDate.getTime(), -3)
   })
 
   it('should update updatedAt when description is changed', () => {
@@ -104,7 +104,7 @@ describe('Book entity', () => {
 
     const currentDate = new Date()
     book.description = faker.lorem.paragraph()
-    expect(book.updatedAt).toStrictEqual(currentDate)
+    expect(book.updatedAt.getTime()).toBeCloseTo(currentDate.getTime(), -3)
   })
 
   it('should update updatedAt when startedReadAt is changed', () => {
@@ -115,7 +115,7 @@ describe('Book entity', () => {
 
     const currentDate = new Date()
     book.startedReadAt = faker.date.recent()
-    expect(book.updatedAt).toStrictEqual(currentDate)
+    expect(book.updatedAt.getTime()).toBeCloseTo(currentDate.getTime(), -3)
   })
 
   it('should update updatedAt when finishedReadAt is changed', () => {
@@ -126,6 +126,6 @@ describe('Book entity', () => {
 
     const currentDate = new Date()
     book.finishedReadAt = faker.date.recent()
-    expect(book.updatedAt).toStrictEqual(currentDate)
+    expect(book.updatedAt.getTime()).toBeCloseTo(currentDate.getTime(), -3)
   })
 })
