@@ -1,0 +1,9 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "rootDir": "./src", /* should be provided to keep the same directory structure inside dist */
+    },
+    "include": ["src"],
+    "exclude": ["test", "node_modules", "dist"]
+  }
+  
