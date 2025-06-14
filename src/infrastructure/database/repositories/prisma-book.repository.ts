@@ -4,7 +4,6 @@ import { PrismaBookMapper } from '../mappers/prisma-book-mapper'
 import { prisma } from '../Prisma'
 
 export class PrismaBookRepository implements IBookRepository {
-
   async save(book: Book): Promise<void> {
     await prisma.book.upsert({
       where: {
