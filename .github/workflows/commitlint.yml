@@ -1,4 +1,4 @@
-name: Commitlint on PR
+name: Check commit pattern on PR
 
 on:
   pull_request:
