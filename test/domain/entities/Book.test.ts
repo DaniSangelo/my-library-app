@@ -6,6 +6,7 @@ describe("Book entity", () => {
     it("should create a book with minimal data", () => {
         const book = Book.create({
             title: faker.book.title(),
+            deviceId: 'd1',
         })
         expect(book.title).toBeTruthy()
         expect(book.title).toStrictEqual(expect.any(String))
@@ -19,6 +20,7 @@ describe("Book entity", () => {
         const book = Book.create({
             title: faker.book.title(),
             author: author,
+            deviceId: 'd1',
         })
 
         expect(book.title).toBeTruthy()
@@ -37,6 +39,7 @@ describe("Book entity", () => {
             author: author,
             description: faker.lorem.paragraph(),
             isbn: faker.number.int({ min: 1000000000000, max: 9999999999999 }).toString(),
+            deviceId: 'd1',
         })
     })
 
@@ -50,6 +53,7 @@ describe("Book entity", () => {
             author: author,
             description: faker.lorem.paragraph(),
             isbn: faker.number.int({ min: 1000000000000, max: 9999999999999 }).toString(),
+            deviceId: 'd1',
         })
 
         expect(book.startedReadAt).toBeUndefined()
@@ -69,6 +73,7 @@ describe("Book entity", () => {
             author: author,
             description: faker.lorem.paragraph(),
             isbn: faker.number.int({ min: 1000000000000, max: 9999999999999 }).toString(),
+            deviceId: 'd1',
         })
 
         expect(book.finishedReadAt).toBeUndefined()
@@ -81,6 +86,7 @@ describe("Book entity", () => {
     it("should update updatedAt when title is changed", () => {
         const book = Book.create({
             title: faker.book.title(),
+            deviceId: 'd1',
         })
 
         const currentDate = new Date()
@@ -91,6 +97,7 @@ describe("Book entity", () => {
     it("should update updatedAt when author is changed", () => {
         const book = Book.create({
             title: faker.book.title(),
+            deviceId: 'd1',
         })
         const author = Author.create({
             name: faker.person.fullName(),
@@ -104,6 +111,7 @@ describe("Book entity", () => {
     it("should update updatedAt when isbn is changed", () => {
         const book = Book.create({
             title: faker.book.title(),
+            deviceId: 'd1',
         })
 
         const currentDate = new Date()
@@ -114,6 +122,7 @@ describe("Book entity", () => {
     it("should update updatedAt when description is changed", () => {
         const book = Book.create({
             title: faker.book.title(),
+            deviceId: 'd1',
         })
 
         const currentDate = new Date()
@@ -124,6 +133,7 @@ describe("Book entity", () => {
     it("should update updatedAt when startedReadAt is changed", () => {
         const book = Book.create({
             title: faker.book.title(),
+            deviceId: 'd1',
         })
 
         const currentDate = new Date()
@@ -134,6 +144,7 @@ describe("Book entity", () => {
     it("should update updatedAt when finishedReadAt is changed", () => {
         const book = Book.create({
             title: faker.book.title(),
+            deviceId: 'd1',
         })
 
         const currentDate = new Date()
