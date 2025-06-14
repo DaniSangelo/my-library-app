@@ -75,6 +75,10 @@ export class Book {
         return this.props.updatedAt!;
     }
 
+    get deviceId(): string {
+        return this.props.deviceId;
+    }
+
 //#endregion
 
 //#region setters
