@@ -8,6 +8,7 @@ export interface BookProps {
     isbn?: string;
     description?: string;
     // coverImageUrl?: string;
+    deviceId: string;
     createdAt?: Date;
     updatedAt?: Date;
     startedReadAt?: Date;
@@ -31,9 +32,9 @@ export class Book {
     }
 
     private validate(props: BookProps) {
-        if (!props.title) {
-            throw new Error("Book title is required");
-        }
+        if (!props.title) throw new Error("Book title is required");
+        if (!props.deviceId) throw new Error('deviceId is required');
+
         props.id = props.id ?? randomUUID();
     }
 
@@ -72,6 +73,10 @@ export class Book {
 
     get updatedAt(): Date {
         return this.props.updatedAt!;
+    }
+
+    get deviceId(): string {
+        return this.props.deviceId;
     }
 
 //#endregion
