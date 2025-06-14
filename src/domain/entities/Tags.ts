@@ -1,18 +1,17 @@
-//todo: improve entity
+// todo: improve entity
 export interface TagProps {
-    id: string;
-    name: string;
+  id: string
+  name: string
 }
-  
+
 export class Tag {
-    constructor(private props: TagProps) {}
+  constructor(private props: TagProps) {}
 
-    get id() {
-        return this.props.id;
-    }
+  get id() {
+    return this.props.id
+  }
 
-    get name() {
-        return this.props.name;
-    }
+  get name() {
+    return this.props.name
+  }
 }
-  

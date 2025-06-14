@@ -1,34 +1,33 @@
-import { randomUUID } from "node:crypto";
+import { randomUUID } from 'node:crypto'
 
-//todo: improve entity
+// todo: improve entity
 export interface PublisherProps {
-    id?: string;
-    name: string;
+  id?: string
+  name: string
 }
-  
+
 export class Publisher {
-    private constructor(private props: PublisherProps) {
-        this.validate(props);
-        this.props = props;
-    }
+  private constructor(private props: PublisherProps) {
+    this.validate(props)
+    this.props = props
+  }
 
-    static create(props: PublisherProps) {
-        return new Publisher(props);
-    }
+  static create(props: PublisherProps) {
+    return new Publisher(props)
+  }
 
-    private validate(props: PublisherProps) {
-        if (!props.name) {
-            throw new Error("Name is required");
-        }
-        props.id = props.id ?? randomUUID()
+  private validate(props: PublisherProps) {
+    if (!props.name) {
+      throw new Error('Name is required')
     }
+    props.id = props.id ?? randomUUID()
+  }
 
-    get id() {
-        return this.props.id!;
-    }
+  get id() {
+    return this.props.id!
+  }
 
-    get name() {
-        return this.props.name;
-    }
+  get name() {
+    return this.props.name
+  }
 }
-  
