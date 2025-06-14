@@ -4,12 +4,11 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && tsup",
+    "build": "npm run clean && tsup src/main.ts --out-dir dist --config tsconfig.build.json",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
-    "prepare": "husky install",
     "lint:fix": "eslint src --ext .ts --fix",
     "lint": "eslint src --ext .ts",
     "start:prod": "node dist/main.js",

@@ -21,7 +21,7 @@ RUN npm install --production
 
 COPY --from=builder /app/dist ./dist
 COPY prisma ./prisma
-COPY .env .env
+# COPY .env .env
 
 RUN npx prisma generate
 
