@@ -1,19 +1,21 @@
-import { Book } from "src/domain/entities/Book";
-import { IBookRepository } from "src/domain/repositories/i-book.repository";
+import { Book } from 'src/domain/entities/Book'
+import { IBookRepository } from 'src/domain/repositories/i-book.repository'
 
 interface ListBooksByDeviceInput {
-    deviceId: string;
+  deviceId: string
 }
 
 interface ListBooksByDeviceOutput {
-    books: Book[];
+  books: Book[]
 }
 
 export class ListBooksByDeviceUseCase {
-    constructor(private readonly booksRepository: IBookRepository){}
+  constructor(private readonly booksRepository: IBookRepository) {}
 
-    async execute({deviceId}: ListBooksByDeviceInput): Promise<ListBooksByDeviceOutput> {
-        const books = await this.booksRepository.findAllByDeviceId(deviceId)
-        return { books: books }
-    }
+  async execute({
+    deviceId,
+  }: ListBooksByDeviceInput): Promise<ListBooksByDeviceOutput> {
+    const books = await this.booksRepository.findAllByDeviceId(deviceId)
+    return { books }
+  }
 }
