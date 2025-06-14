@@ -13,7 +13,7 @@ export class PrismaBookRepository implements IBookRepository {
       },
       update: {
         title: book.title,
-        // author: book.author
+        author: book.author,
         isbn: book.isbn,
         description: book.description,
         startedReadAt: book.startedReadAt,
@@ -23,7 +23,7 @@ export class PrismaBookRepository implements IBookRepository {
         id: book.id,
         title: book.title,
         deviceId: book.deviceId,
-        // author: book.author
+        author: book.author,
         isbn: book.isbn,
         description: book.description,
         startedReadAt: book.startedReadAt,
