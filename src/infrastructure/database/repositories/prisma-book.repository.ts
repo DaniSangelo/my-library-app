@@ -1,13 +1,12 @@
 import { IBookRepository } from 'src/domain/repositories/i-book.repository'
-import { PrismaClient } from '@prisma/client'
 import { Book } from 'src/domain/entities/Book'
 import { PrismaBookMapper } from '../mappers/prisma-book-mapper'
+import { prisma } from '../Prisma'
 
 export class PrismaBookRepository implements IBookRepository {
-  private prisma = new PrismaClient()
 
   async save(book: Book): Promise<void> {
-    await this.prisma.book.upsert({
+    await prisma.book.upsert({
       where: {
         id: book.id,
       },
@@ -33,17 +32,17 @@ export class PrismaBookRepository implements IBookRepository {
   }
 
   async findById(id: string): Promise<Book | null> {
-    const book = await this.prisma.book.findUnique({ where: { id } })
+    const book = await prisma.book.findUnique({ where: { id } })
     if (!book) return null
     return PrismaBookMapper.toDomain(book)
   }
 
   async findAllByDeviceId(deviceId: string): Promise<Book[]> {
-    const books = await this.prisma.book.findMany({ where: { deviceId } })
+    const books = await prisma.book.findMany({ where: { deviceId } })
     return books.map((book) => PrismaBookMapper.toDomain(book))
   }
 
   async delete(id: string): Promise<void> {
-    await this.prisma.book.delete({ where: { id } })
+    await prisma.book.delete({ where: { id } })
   }
 }
