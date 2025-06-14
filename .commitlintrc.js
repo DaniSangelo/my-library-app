@@ -10,6 +10,7 @@ module.exports = {
           'chore', /* indicates changes to the project that do not affect the system or test files. These are development changes. */
           'docs',
           'feat',
+          'improv',
           'fix',
           'perf',
           'refactor',
