@@ -1,10 +1,9 @@
 import { randomUUID } from 'node:crypto'
-import { Author } from './Author'
 
 export interface BookProps {
   id?: string
   title: string
-  author?: Author
+  author?: string
   isbn?: string
   description?: string
   // coverImageUrl?: string;
@@ -51,7 +50,7 @@ export class Book {
     return this.props.title
   }
 
-  get author(): Author | undefined {
+  get author(): string | undefined {
     return this.props.author
   }
 
@@ -87,7 +86,7 @@ export class Book {
     this.touch()
   }
 
-  set author(author: Author) {
+  set author(author: string) {
     this.props.author = author
     this.touch()
   }
