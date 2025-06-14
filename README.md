@@ -16,6 +16,7 @@ A TypeScript library project with modern development tools and best practices.
 - Unit testing with Vitest
 - Git hooks with Husky
 - Commit message linting with Commitlint
+- Modern development workflow
 
 ## 📦 Installation
 
@@ -29,6 +30,11 @@ npm install
 # Run tests
 npm test
 
+# Run tests in watch mode
+npm run dev
+
+# Build the project
+npm run build
 ```
 
 ## 📝 License
