@@ -1,14 +1,15 @@
 import { Router } from 'express'
 import { ListBooksByDeviceUseCase } from '@src/application/use-cases/list-books-by-device'
-import { PrismaBookRepository } from '@src/infrastructure/database/repositories/prisma-book.repository'
 import { CreateBookUseCase } from '@src/application/use-cases/create-book'
+import { TypeOrmBookRepository } from '@src/infrastructure/database/repositories/typeorm/typeorm-book.repository'
 
 const router = Router()
-const bookRepository = new PrismaBookRepository()
+const bookRepository = new TypeOrmBookRepository()
 
 router.get('/books/:id', async (req, res) => {
   const listBooksByDeviceUseCase = new ListBooksByDeviceUseCase(bookRepository)
-  const books = await listBooksByDeviceUseCase.execute({ deviceId: 'e1' })
+  const deviceId = req.params.id
+  const books = await listBooksByDeviceUseCase.execute({ deviceId })
   res.json(books)
 })
 

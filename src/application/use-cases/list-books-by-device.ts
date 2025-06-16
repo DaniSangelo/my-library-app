@@ -1,21 +1,22 @@
-import { Book } from 'src/domain/entities/Book'
-import { IBookRepository } from 'src/domain/repositories/i-book.repository'
+import { Book } from '../../domain/entities/Book'
+import { IBookRepository } from '../../domain/repositories/i-book.repository'
+import { BookPresenter, BookPresenterImpl } from '../../interfaces/presenters/book-presenter'
 
 interface ListBooksByDeviceInput {
   deviceId: string
 }
 
 interface ListBooksByDeviceOutput {
-  books: Book[]
+  books: BookPresenter[]
 }
 
 export class ListBooksByDeviceUseCase {
-  constructor(private readonly booksRepository: IBookRepository) {}
+  constructor(private readonly bookRepository: IBookRepository) {}
 
-  async execute({
-    deviceId,
-  }: ListBooksByDeviceInput): Promise<ListBooksByDeviceOutput> {
-    const books = await this.booksRepository.findAllByDeviceId(deviceId)
-    return { books }
+  async execute(request: ListBooksByDeviceInput): Promise<ListBooksByDeviceOutput> {
+    const books = await this.bookRepository.findAllByDeviceId(request.deviceId)
+    return {
+      books: BookPresenterImpl.toJSONList(books)
+    }
   }
 }
