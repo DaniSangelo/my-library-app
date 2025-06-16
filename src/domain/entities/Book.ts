@@ -1,4 +1,4 @@
-import { ObjectId } from 'bson';
+import { ObjectId } from 'bson'
 
 export interface BookProps {
   id?: string
@@ -34,7 +34,7 @@ export class Book {
     if (!props.title) throw new Error('Book title is required')
     if (!props.deviceId) throw new Error('deviceId is required')
 
-    props.id = props.id ?? new ObjectId().toHexString();
+    props.id = props.id ?? new ObjectId().toHexString()
   }
 
   private touch() {

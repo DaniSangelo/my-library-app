@@ -13,15 +13,15 @@ router.get('/books/:id', async (req, res) => {
 })
 
 router.post('/books', async (req, res) => {
-    const createBookUseCase = new CreateBookUseCase(bookRepository);
-    const book = await createBookUseCase.execute({
-        deviceId: req.body.deviceId,
-        title: req.body.title,
-        author: req.body.author,
-        description: req.body.description,
-        isbn: req.body.isbn,
-    })
-    res.json(book);
+  const createBookUseCase = new CreateBookUseCase(bookRepository)
+  const book = await createBookUseCase.execute({
+    deviceId: req.body.deviceId,
+    title: req.body.title,
+    author: req.body.author,
+    description: req.body.description,
+    isbn: req.body.isbn,
+  })
+  res.json(book)
 })
 
 export default router
