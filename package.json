@@ -12,11 +12,9 @@
     "lint:fix": "eslint src --ext .ts --fix",
     "lint": "eslint src --ext .ts",
     "start:prod": "node dist/main.js",
-
     "prisma:generate": "prisma generate",
     "prisma:push": "prisma db push",
     "prisma:studio": "prisma studio",
-  
     "docker:build": "docker-compose build",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
@@ -49,6 +47,7 @@
   "dependencies": {
     "@faker-js/faker": "^9.8.0",
     "@prisma/client": "^6.9.0",
+    "bson": "^6.10.4",
     "dotenv": "^16.5.0",
     "express": "^5.1.0"
   }
