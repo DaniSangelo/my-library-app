@@ -1,15 +1,16 @@
+version: "3.8"
+
 services:
   mongo:
     image: mongo:6
-    restart: always
     container_name: mongodb
+    restart: always
     ports:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
 
   app:
-    # Usa o Dockerfile no diretório atual para construir a imagem
     build: .
     container_name: my-library-app-backend
     restart: always
@@ -19,9 +20,7 @@ services:
       - mongo
     environment:
       - DATABASE_URL=mongodb://mongo:27017/my-library-db
-    volumes:
-      - .:/app
-      - /app/node_modules
     command: npm run start:prod
+
 volumes:
   mongo_data:
