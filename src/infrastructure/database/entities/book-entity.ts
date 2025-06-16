@@ -1,44 +1,50 @@
-import { Entity, ObjectIdColumn, Column, BeforeInsert, BeforeUpdate } from 'typeorm';
-import { ObjectId } from 'mongodb';
+import {
+  Entity,
+  ObjectIdColumn,
+  Column,
+  BeforeInsert,
+  BeforeUpdate,
+} from 'typeorm'
+import { ObjectId } from 'mongodb'
 
 @Entity()
 export class BookEntity {
   @ObjectIdColumn()
-  id!: ObjectId;
+  id!: ObjectId
 
   @Column({ type: 'string' })
-  title!: string;
+  title!: string
 
   @Column({ type: 'string', nullable: true })
-  author?: string;
+  author?: string
 
   @Column({ type: 'string', nullable: true })
-  isbn?: string;
+  isbn?: string
 
   @Column({ type: 'string', nullable: true })
-  description?: string;
+  description?: string
 
   @Column({ type: 'string' })
-  deviceId!: string;
+  deviceId!: string
 
   @Column({ type: 'date', nullable: true })
-  createdAt?: Date;
+  createdAt?: Date
 
   @Column({ type: 'date', nullable: true })
-  updatedAt?: Date;
+  updatedAt?: Date
 
   @Column({ type: 'date', nullable: true })
-  startedReadAt?: Date;
+  startedReadAt?: Date
 
   @Column({ type: 'date', nullable: true })
-  finishedReadAt?: Date;
+  finishedReadAt?: Date
 
   @BeforeInsert()
   @BeforeUpdate()
   updateTimestamps() {
     if (!this.createdAt) {
-      this.createdAt = new Date();
+      this.createdAt = new Date()
     }
-    this.updatedAt = new Date();
+    this.updatedAt = new Date()
   }
 }
