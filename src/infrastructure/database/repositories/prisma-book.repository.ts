@@ -38,7 +38,7 @@ export class PrismaBookRepository implements IBookRepository {
 
   async findAllByDeviceId(deviceId: string): Promise<Book[]> {
     const books = await prisma.book.findMany({ where: { deviceId } })
-    return books.map((book: Book) => PrismaBookMapper.toDomain(book))
+    return books.map((book) => PrismaBookMapper.toDomain(book))
   }
 
   async delete(id: string): Promise<void> {
