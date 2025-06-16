@@ -4,25 +4,22 @@ FROM node:20-alpine as builder
 WORKDIR /app
 
 COPY package*.json ./
-
-RUN npm install
+RUN npm ci
 
 COPY . .
-
 RUN npm run build
 
-# STEP 2: Running
+# STEP 2: Production
 FROM node:20-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install --production
+# Copia apenas os node_modules de produção do builder
+COPY --from=builder /app/node_modules ./node_modules
 
+# Copia arquivos de build e config
 COPY --from=builder /app/dist ./dist
-COPY prisma ./prisma
-# COPY .env .env
+COPY package*.json ./
 
-RUN npx prisma generate
-
+# Start
 CMD ["node", "dist/main.js"]

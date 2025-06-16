@@ -28,7 +28,7 @@ describe('Create book use case', () => {
   })
 
   it('should not create a book without deviceId', async () => {
-    expect(() => {
+    await expect(() => {
       return sut.execute({
         title: faker.book.title(),
         deviceId: '',

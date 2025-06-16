@@ -26,5 +26,3 @@ coverage/
 .vscode/
 .DS_Store
 Thumbs.db
-
-/generated/prisma
