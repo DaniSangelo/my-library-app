@@ -11,7 +11,6 @@
 [![TypeORM](https://img.shields.io/badge/TypeORM-262626?style=flat-square&logo=typeorm&logoColor=white)](https://typeorm.io/)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
 
-
 A TypeScript library project with modern development tools and best practices.
 
 ## 🚀 Features
@@ -44,3 +43,7 @@ npm run build
 ## 📝 License
 
 This project is licensed under the ISC License - see the LICENSE file for details. 
+
+## 🙏 Acknowledgements
+
+Thanks, [OpenLibrary](https://github.com/internetarchive/openlibrary) team!
