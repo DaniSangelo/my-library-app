@@ -7,6 +7,10 @@
 [![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
 [![Husky](https://img.shields.io/badge/Husky-000000?style=flat-square&logo=husky&logoColor=white)](https://typicode.github.io/husky/)
 [![Commitlint](https://img.shields.io/badge/Commitlint-000000?style=flat-square&logo=commitlint&logoColor=white)](https://commitlint.js.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![TypeORM](https://img.shields.io/badge/TypeORM-262626?style=flat-square&logo=typeorm&logoColor=white)](https://typeorm.io/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
+
 
 A TypeScript library project with modern development tools and best practices.
 
