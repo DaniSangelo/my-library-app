@@ -28,9 +28,9 @@ router.post('/books', async (req, res) => {
 
 router.post('/books/isbn', async (req, res) => {
   const { isbn, deviceId } = req.body
-  const createBookByIsbnUseCase = new CreateBookByIsbnUseCase(bookRepository);
-  await createBookByIsbnUseCase.execute({isbn, deviceId});
-  res.status(201).send();
+  const createBookByIsbnUseCase = new CreateBookByIsbnUseCase(bookRepository)
+  await createBookByIsbnUseCase.execute({ isbn, deviceId })
+  res.status(201).send()
 })
 
 export default router

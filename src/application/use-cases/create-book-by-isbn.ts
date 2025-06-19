@@ -1,46 +1,46 @@
-import { Book } from "src/domain/entities/Book";
-import { IBookRepository } from "src/domain/repositories/i-book.repository"
-import axios from "axios";
+import { Book } from 'src/domain/entities/Book'
+import { IBookRepository } from 'src/domain/repositories/i-book.repository'
+import axios from 'axios'
 
 interface CreateBookByIsbnInput {
-    isbn: string
-    deviceId: string
+  isbn: string
+  deviceId: string
 }
 
 export class CreateBookByIsbnUseCase {
-    constructor(private readonly bookRepository: IBookRepository) {}
+  constructor(private readonly bookRepository: IBookRepository) {}
 
-    async execute(input: CreateBookByIsbnInput): Promise<void> {
-        const { isbn, deviceId } = input;
+  async execute(input: CreateBookByIsbnInput): Promise<void> {
+    const { isbn, deviceId } = input
 
-        if (!isbn || !deviceId) {
-            throw new Error('ISBN and deviceId are required')
-        }
-
-        const bookData = await this.fetchBookFromOpenLibrary(isbn);
-        const book = Book.create({
-            title: bookData.title,
-            author: bookData.authors?.map((a: { name: any; }) => a.name).join(', '),
-            isbn,
-            deviceId,
-        })
-
-        await this.bookRepository.save(book);
+    if (!isbn || !deviceId) {
+      throw new Error('ISBN and deviceId are required')
     }
 
-    private async fetchBookFromOpenLibrary(isbn: string): Promise<any> {
-        const url = `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&format=json&jscmd=data`
+    const bookData = await this.fetchBookFromOpenLibrary(isbn)
+    const book = Book.create({
+      title: bookData.title,
+      author: bookData.authors?.map((a: { name: any }) => a.name).join(', '),
+      isbn,
+      deviceId,
+    })
 
-        const response = await axios.get(url)
-        const data = response.data
+    await this.bookRepository.save(book)
+  }
 
-        const bookKey = `ISBN:${isbn}`
-        const book = data[bookKey]
+  private async fetchBookFromOpenLibrary(isbn: string): Promise<any> {
+    const url = `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&format=json&jscmd=data`
 
-        if (!book) {
-            throw new Error('Book not found with the provided ISBN')
-        }
+    const response = await axios.get(url)
+    const data = response.data
 
-        return book
+    const bookKey = `ISBN:${isbn}`
+    const book = data[bookKey]
+
+    if (!book) {
+      throw new Error('Book not found with the provided ISBN')
+    }
+
+    return book
   }
 }
