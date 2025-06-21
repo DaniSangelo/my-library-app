@@ -10,6 +10,8 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![TypeORM](https://img.shields.io/badge/TypeORM-262626?style=flat-square&logo=typeorm&logoColor=white)](https://typeorm.io/)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
+
 
 A TypeScript library project with modern development tools and best practices.
 
